@@ -27,8 +27,15 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug('fatih/vim-go', { ['do'] = ':GoUpdateBinaries' })
+Plug 'folke/lsp-colors.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
 
 vim.call('plug#end')
+
+vim.diagnostic.config({
+  virtual_text = true
+})
 
 vim.cmd([[
 set nohlsearch

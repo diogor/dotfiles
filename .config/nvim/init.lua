@@ -2,7 +2,7 @@ HOME = os.getenv("HOME")
 
 vim.g.mapleader=" "
 vim.opt.exrc=true
-vim.opt.tabstop=4 
+vim.opt.tabstop=4
 vim.opt.softtabstop=4
 vim.opt.shiftwidth=4
 vim.opt.expandtab=true
@@ -30,6 +30,7 @@ Plug('fatih/vim-go', { ['do'] = ':GoUpdateBinaries' })
 Plug 'folke/lsp-colors.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
+Plug 'itchyny/lightline.vim'
 
 vim.call('plug#end')
 
@@ -37,12 +38,30 @@ vim.diagnostic.config({
   virtual_text = true
 })
 
+vim.g['lightline'] = {
+  colorscheme = 'rosepine',
+  active = {
+    left = {{'mode', 'paste'}, {'readonly', 'filename', 'modified'}}
+  },
+  tabline = {
+    left = {{'buffers'}},
+    right = {{'close'}}
+  },
+  component_expand = {
+    buffers = 'lightline#bufferline#buffers'
+  },
+  component_type = {
+    buffers = 'tabsel'
+  }
+}
+
 vim.cmd([[
 set nohlsearch
 set noerrorbells
 set nowrap
 set noswapfile
 set nobackup
+set noshowmode
 
 colorscheme tokyonight-night
 

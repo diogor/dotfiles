@@ -1,8 +1,10 @@
+require("plugins")
+require("keymaps")
+
 HOME = os.getenv("HOME")
 
-vim.g.mapleader=" "
 vim.opt.exrc=true
-vim.opt.tabstop=4
+vim.opt.tabstop=4 
 vim.opt.softtabstop=4
 vim.opt.shiftwidth=4
 vim.opt.expandtab=true
@@ -18,42 +20,29 @@ vim.opt.scrolloff=8
 vim.opt.signcolumn="yes"
 vim.opt.updatetime=100
 
-local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/.vim/plugged')
-
-Plug 'nvim-telescope/telescope.nvim'
-Plug('folke/tokyonight.nvim', { branch = 'main' })
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'airblade/vim-gitgutter'
-Plug('fatih/vim-go', { ['do'] = ':GoUpdateBinaries' })
-Plug 'folke/lsp-colors.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'folke/trouble.nvim'
-Plug 'itchyny/lightline.vim'
-
-vim.call('plug#end')
-
 vim.diagnostic.config({
   virtual_text = true
 })
 
-vim.g['lightline'] = {
-  colorscheme = 'rosepine',
-  active = {
-    left = {{'mode', 'paste'}, {'readonly', 'filename', 'modified'}}
-  },
-  tabline = {
-    left = {{'buffers'}},
-    right = {{'close'}}
-  },
-  component_expand = {
-    buffers = 'lightline#bufferline#buffers'
-  },
-  component_type = {
-    buffers = 'tabsel'
-  }
-}
+-- this part is telling Neovim to use the lsp server
+local servers = { 'pyright', 'tsserver', 'jdtls', 'gopls' }
+for _, lsp in pairs(servers) do
+    require('lspconfig')[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,
+        }
+    }
+end
+
+-- this is for diagnositcs signs on the line number column
+-- use this to beautify the plain E W signs to more fun ones
+-- !important nerdfonts needs to be setup for this to work in your terminal
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " } 
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
+end
 
 vim.cmd([[
 set nohlsearch
@@ -65,14 +54,5 @@ set noshowmode
 
 colorscheme tokyonight-night
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
 ]])
+

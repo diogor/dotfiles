@@ -199,6 +199,7 @@ bar {
         status_command i3status
         font pango:Hack 11
         colors {
+            separator #9ccfd8
             background #1a1b26
             focused_workspace #9ccfd8 #9ccfd8 #1a1b26
             inactive_workspace #39363f #1f1d2e #908caa

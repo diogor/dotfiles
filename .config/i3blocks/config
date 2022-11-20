@@ -12,17 +12,6 @@ command=nm-vpn/nm-vpn
 label=
 interval=5
 
-[aur-update]
-command=aur-update/aur-update
-markup=pango
-format=json
-interval=43200
-UPDATE_COLOR=red
-QUIET=1
-IGNORE=root vidyodesktop
-#CACHE_UPDATES=0
-#FORCE_IPV4=1
-
 [arch-update]
 command=arch-update/arch-update 
 interval=3600

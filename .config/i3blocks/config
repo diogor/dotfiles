@@ -1,0 +1,13 @@
+command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[battery2]
+command=battery2/battery2
+markup=pango
+interval=30
+
+[time]
+command=echo " "$(date "+%H:%M %a, %d %b")
+interval=5
+

@@ -1,13 +1,54 @@
-command=$SCRIPT_DIR/$BLOCK_NAME
 separator_block_width=15
-markup=none
+
+[i3-focusedwindow]
+label= 
+command=i3-focusedwindow/i3-focusedwindow 20
+interval=persist
+
+[nm-vpn]
+command=nm-vpn/nm-vpn
+#init_color=#FFFF00
+#on_color=#00FF00
+label=
+interval=5
+
+[aur-update]
+command=aur-update/aur-update
+markup=pango
+format=json
+interval=43200
+UPDATE_COLOR=red
+QUIET=1
+IGNORE=root vidyodesktop
+#CACHE_UPDATES=0
+#FORCE_IPV4=1
+
+[arch-update]
+command=arch-update/arch-update 
+interval=3600
+markup=pango
+LABEL=
 
 [battery2]
 command=battery2/battery2
 markup=pango
 interval=30
 
+[rofi-calendar]
+command=rofi-calendar/rofi-calendar
+interval=3600
+#BAR_POSITION=bottom
+#WEEK_START=monday
+DATEFTM=+%a %d %b
+#SHORTFMT=+%d/%m/%Y
+LABEL= 
+#FONT=Monospace 10
+#LEFTCLICK_PREV_MONTH=false
+#PREV_MONTH_TEXT=« previous month «
+#NEXT_MONTH_TEXT=» next month »
+#ROFI_CONFIG_FILE=/dev/null
+
 [time]
-command=echo " "$(date "+%H:%M %a, %d %b")
+command=echo " "$(date "+%H:%M")
 interval=5
 

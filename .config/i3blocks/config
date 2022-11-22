@@ -1,9 +1,9 @@
 separator_block_width=15
 
-[i3-focusedwindow]
-label= 
-command=i3-focusedwindow/i3-focusedwindow 20
-interval=persist
+#[i3-focusedwindow]
+#label= 
+#command=i3-focusedwindow/i3-focusedwindow 20
+#interval=persist
 
 [nm-vpn]
 command=nm-vpn/nm-vpn
@@ -11,6 +11,12 @@ command=nm-vpn/nm-vpn
 #on_color=#00FF00
 label=
 interval=5
+
+[memory]
+PERCENT=false
+command=memory/memory
+label= 
+interval=30
 
 [arch-update]
 command=arch-update/arch-update 

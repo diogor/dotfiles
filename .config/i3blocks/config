@@ -16,34 +16,34 @@ interval=5
 PERCENT=false
 command=memory/memory
 label= 
-interval=30
+interval=10
 
 [arch-update]
 command=arch-update/arch-update 
-interval=3600
+interval=30
 markup=pango
 LABEL=
 
 [battery2]
 command=battery2/battery2
 markup=pango
-interval=30
+interval=5
 
-[rofi-calendar]
-command=rofi-calendar/rofi-calendar
-interval=3600
-#BAR_POSITION=bottom
-#WEEK_START=monday
-DATEFTM=+%a %d %b
-#SHORTFMT=+%d/%m/%Y
-LABEL= 
-#FONT=Monospace 10
-#LEFTCLICK_PREV_MONTH=false
-#PREV_MONTH_TEXT=« previous month «
-#NEXT_MONTH_TEXT=» next month »
-#ROFI_CONFIG_FILE=/dev/null
+#[rofi-calendar]
+#command=rofi-calendar/rofi-calendar
+#interval=3600
+##BAR_POSITION=bottom
+##WEEK_START=monday
+#DATEFTM=+%a %d %b
+##SHORTFMT=+%d/%m/%Y
+#LABEL= 
+##FONT=Monospace 10
+##LEFTCLICK_PREV_MONTH=false
+##PREV_MONTH_TEXT=« previous month «
+##NEXT_MONTH_TEXT=» next month »
+##ROFI_CONFIG_FILE=/dev/null
 
 [time]
-command=echo " "$(date "+%H:%M")
-interval=5
+command=echo " "$(date "+%a %d %b") " "$(date "+%H:%M")
+interval=1
 

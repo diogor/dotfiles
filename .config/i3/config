@@ -34,6 +34,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id volumeicon
+exec --no-startup-id blueman-applet 
 exec --no-startup-id nm-applet
 exec --no-startup-id setxkbmap br
 exec --no-startup-id nitrogen --restore
@@ -46,7 +47,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl --device='intel_backlight' set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --device='intel_backlight' set 5%-
 
-bindsym $mod+Ctrl+l exec i3lock
+bindsym $mod+Ctrl+l exec i3lock -c 000000
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -188,25 +189,41 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+#set $color0 #11002A
+#set $color1 #9368B7
+#set $color2 #9297C4
+#set $color3 #84C7D0
+#set $color4 #75DDDD
+
+set $color0 #0f0f0f
+set $color1 #404040
+#set $color2 #5c5c5c
+set $color2 #9ccfd8
+set $color3 #8f8f8f
+set $color4 #dbdbdb
 # class	        border	background	text    indicator	child_border			
-client.background	n/a	    #ffffff     n/a	    n/a	        n/a
-client.urgent	    #2f343a	#900000	    #ffffff	#900000	    #900000
-client.placeholder	#000000	#0c0c0c	    #ffffff	#000000 	#0c0c0c
-client.focused           #000000 #1a1b26 #c0caf5 #9aa5ce   #9ccfd8
-client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
-client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
+client.background	n/a	    $color0     n/a	    n/a	        n/a
+client.urgent	         $color3 $color0 $color4 $color2 $color3 
+client.placeholder	     $color0 $color0 $color4 $color2 $color0
+client.focused           $color1 $color0 $color4 $color2 $color2
+client.focused_inactive  $color2 $color0 $color4 $color2 $color2
+client.unfocused         $color0 $color0 $color4 $color2 $color0
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         #status_command i3status
+        position top 
         status_command i3blocks 
         font pango:Hack 11
         colors {
-            separator #9ccfd8
-            background #1a1b26
-            focused_workspace #9ccfd8 #9ccfd8 #1a1b26
-            inactive_workspace #39363f #1f1d2e #908caa
+            separator $color1
+            background $color0
+            statusline $color4
+            # border background text
+            focused_workspace $color1 $color2 $color0
+            inactive_workspace $color0 $color0 $color3
         }
 }
 gaps inner 4
+smart_gaps on

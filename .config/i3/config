@@ -196,11 +196,13 @@ bindsym $mod+r mode "resize"
 #set $color4 #75DDDD
 
 #set $color0 #0f0f0f
-set $color0 #0a111f
+#set $color0 #0a111f
+set $color0 #191724
 set $color1 #404040
 #set $color2 #5c5c5c
 #set $color2 #9ccfd8
-set $color2 #465a87
+#set $color2 #465a87
+set $color2 #31748f
 set $color3 #8f8f8f
 set $color4 #dbdbdb
 # class	        border	background	text    indicator	child_border			

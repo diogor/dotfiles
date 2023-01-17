@@ -120,16 +120,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1:I"
+set $ws2 "2:II"
+set $ws3 "3:III"
+set $ws4 "4:IV"
+set $ws5 "5:V"
+set $ws6 "6:VI"
+set $ws7 "7:VII"
+set $ws8 "8:VIII"
+set $ws9 "9:IX"
+set $ws10 "10:X"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -195,10 +195,12 @@ bindsym $mod+r mode "resize"
 #set $color3 #84C7D0
 #set $color4 #75DDDD
 
-set $color0 #0f0f0f
+#set $color0 #0f0f0f
+set $color0 #0a111f
 set $color1 #404040
 #set $color2 #5c5c5c
-set $color2 #9ccfd8
+#set $color2 #9ccfd8
+set $color2 #465a87
 set $color3 #8f8f8f
 set $color4 #dbdbdb
 # class	        border	background	text    indicator	child_border			
@@ -213,11 +215,13 @@ client.unfocused         $color0 $color0 $color4 $color2 $color0
 # finds out, if available)
 bar {
         #status_command i3status
+        output primary
+        strip_workspace_numbers yes
         position top 
         status_command i3blocks 
         font pango:Hack 11
         colors {
-            separator $color1
+            separator $color3
             background $color0
             statusline $color4
             # border background text

@@ -1,3 +1,5 @@
+local tel = require('telescope.builtin')
+
 -- Leader
 vim.g.mapleader=" "
 
@@ -24,15 +26,29 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
 
+-- this part is telling Neovim to use the lsp server
+local servers = { 'pyright', 'tsserver', 'jdtls', 'gopls' }
+for _, lsp in pairs(servers) do
+    require('lspconfig')[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,
+        }
+    }
+end
+
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<C-o>', vim.cmd.Ex, opts)
+vim.keymap.set('n', '<C-A-P>', tel.git_files, opts)
+vim.keymap.set('n', '<C-p>', tel.find_files, opts)
+vim.keymap.set('n', '<leader>fb', vim.cmd.Ex, opts)
+vim.keymap.set('n', '<leader>ff', function()
+    tel.grep_string({ search = vim.fn.input('Grep > ') })
+end, opts)
 
 vim.cmd([[
-nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==

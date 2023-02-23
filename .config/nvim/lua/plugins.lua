@@ -30,6 +30,10 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug('VonHeikemen/lsp-zero.nvim', {['branch'] = 'v1.x'})
+
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+
 vim.call('plug#end')
 
 require("mason").setup()

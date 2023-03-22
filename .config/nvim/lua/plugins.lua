@@ -44,7 +44,7 @@ require("harpoon").setup()
 vim.g['lightline'] = {
   colorscheme = 'rosepine',
   active = {
-    left = {{'mode', 'paste'}, {'readonly', 'filename', 'modified'}}
+    left = {{'mode', 'paste'}, {'readonly', 'absolutepath', 'modified'}}
   },
   tabline = {
     left = {{'buffers'}},

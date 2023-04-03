@@ -1,9 +1,9 @@
 separator_block_width=15
 
-#[i3-focusedwindow]
-#label= 
-#command=i3-focusedwindow/i3-focusedwindow 20
-#interval=persist
+[i3-focusedwindow]
+label= 
+command=i3-focusedwindow/i3-focusedwindow 80
+interval=persist
 
 [nm-vpn]
 command=nm-vpn/nm-vpn
@@ -24,10 +24,10 @@ interval=30
 markup=pango
 LABEL=
 
-[battery2]
-command=battery2/battery2
-markup=pango
-interval=5
+#[battery2]
+#command=battery2/battery2
+#markup=pango
+#interval=5
 
 #[rofi-calendar]
 #command=rofi-calendar/rofi-calendar

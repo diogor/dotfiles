@@ -9,5 +9,14 @@ lsp.setup_nvim_cmp({
   })
 })
 
+local servers = { 'pyright', 'tsserver', 'jdtls', 'gopls' }
+for _, lsp in pairs(servers) do
+    require('lspconfig')[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,
+        }
+    }
+end
 lsp.setup()
 

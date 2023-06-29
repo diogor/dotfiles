@@ -34,11 +34,15 @@ Plug('VonHeikemen/lsp-zero.nvim', {['branch'] = 'v1.x'})
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'prettier/vim-prettier'
 vim.call('plug#end')
 
 require("mason").setup()
 require("mason-lspconfig").setup()
-require("toggleterm").setup()
+require("toggleterm").setup({
+    autochdir = true
+})
 require("harpoon").setup()
 
 vim.g['lightline'] = {
@@ -60,7 +64,7 @@ vim.g['lightline'] = {
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "go", "python", "java", "javascript", "go" },
+  ensure_installed = { "python", "java", "javascript", "go" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

@@ -26,17 +26,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
 
--- this part is telling Neovim to use the lsp server
-local servers = { 'pyright', 'tsserver', 'jdtls', 'gopls' }
-for _, lsp in pairs(servers) do
-    require('lspconfig')[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-          debounce_text_changes = 150,
-        }
-    }
-end
-
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)

@@ -31,6 +31,8 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id dunst 
@@ -49,6 +51,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl --device='intel_backlight' set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --device='intel_backlight' set 5%-
 
+# Utils
+bindsym $mod+Print exec scrot
+
 bindsym $mod+Ctrl+l exec i3lock -c 000000
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -62,7 +67,8 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show run
+#bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id "rofi -show combi -combi-modi window,run,drun,filebrowser,ssh -modi combi"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -206,8 +212,11 @@ set $color1 #404040
 #set $color2 #9ccfd8
 #set $color2 #465a87
 #set $color2 #31748f
-set $color2 #2AC3DE
-set $color3 #8f8f8f
+#set $color2 #2AC3DE
+#set $color2 #40edbb
+#set $color2 #31748f
+set $color2 #22b996
+set $color3 #545e84
 set $color4 #dbdbdb
 # class	        border	background	text    indicator	child_border			
 client.background	n/a	    $color0     n/a	    n/a	        n/a
@@ -236,4 +245,4 @@ bar {
         }
 }
 gaps inner 4
-smart_gaps on
+smart_gaps off

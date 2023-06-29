@@ -1,7 +1,15 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+    filters = {
+        dotfiles = false,
+    },
+    git = {
+      enable = true,
+      ignore = false,
+    },
+})
 
 
 vim.keymap.set('n', '<leader>fb', vim.cmd.NvimTreeToggle);

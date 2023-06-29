@@ -127,7 +127,8 @@ def matching_updates(updates, watch_list):
 
 
 label = os.environ.get("LABEL","")
-message = "{0}<span color='{1}'>{2}</span>"
+#message = "{0}<span color='{1}'>{2}</span>"
+message = "{0} {2}"
 args = create_argparse()
 
 updates = get_updates()

@@ -1,11 +1,14 @@
 separator_block_width=15
 
 [i3-focusedwindow]
+#color=#31748f
+color=#545e84
 label= 
 command=i3-focusedwindow/i3-focusedwindow 80
 interval=persist
 
 [nm-vpn]
+color=#545e84
 command=nm-vpn/nm-vpn
 #init_color=#FFFF00
 #on_color=#00FF00
@@ -13,12 +16,14 @@ label=
 interval=5
 
 [memory]
+color=#545e84
 PERCENT=false
 command=memory/memory
 label= 
 interval=10
 
 [arch-update]
+color=#545e84
 command=arch-update/arch-update 
 interval=30
 markup=pango
@@ -44,6 +49,7 @@ LABEL=
 ##ROFI_CONFIG_FILE=/dev/null
 
 [time]
+color=#545e84
 command=echo " "$(date "+%a %d %b") " "$(date "+%H:%M")
 interval=1
 

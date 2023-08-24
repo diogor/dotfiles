@@ -35,6 +35,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id picom 
 exec --no-startup-id dunst 
 exec --no-startup-id volumeicon
 exec --no-startup-id blueman-applet 
@@ -58,10 +59,10 @@ bindsym $mod+Ctrl+l exec i3lock -c 000000
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-default_border pixel 2
+default_border pixel 1
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec wezterm
 # kill focused window
 bindsym $mod+q kill
 
@@ -197,27 +198,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#set $color0 #11002A
-#set $color1 #9368B7
-#set $color2 #9297C4
-#set $color3 #84C7D0
-#set $color4 #75DDDD
-
-#set $color0 #0f0f0f
-#set $color0 #0a111f
-#set $color0 #191724
 set $color0 #1A1B26
 set $color1 #404040
-#set $color2 #5c5c5c
-#set $color2 #9ccfd8
-#set $color2 #465a87
-#set $color2 #31748f
-#set $color2 #2AC3DE
-#set $color2 #40edbb
-#set $color2 #31748f
-set $color2 #22b996
+set $color2 #90bedf
 set $color3 #545e84
 set $color4 #dbdbdb
+
 # class	        border	background	text    indicator	child_border			
 client.background	n/a	    $color0     n/a	    n/a	        n/a
 client.urgent	         $color3 $color0 $color4 $color2 $color3 

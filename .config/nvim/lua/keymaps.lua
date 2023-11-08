@@ -35,6 +35,8 @@ vim.keymap.set('n', '<leader>fb', vim.cmd.Ex, opts)
 vim.keymap.set('n', '<leader>ff', function()
     tel.grep_string({ search = vim.fn.input('Grep > ') })
 end, opts)
+vim.keymap.set('n', '<leader>k', require('dapui').eval, opts)
+vim.keymap.set('n', '<leader>b', require('dapui').toggle, opts)
 
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -45,4 +47,10 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+]])
+vim.cmd([[
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 ]])

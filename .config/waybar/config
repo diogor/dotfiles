@@ -13,7 +13,7 @@
 
     "modules-left": [
         // "custom/launcher",
-        "wlr/workspaces",
+        "hyprland/workspaces",
         "hyprland/window",
     ],
  

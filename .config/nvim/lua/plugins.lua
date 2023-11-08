@@ -36,6 +36,15 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'prettier/vim-prettier'
+
+Plug('Exafunction/codeium.vim', {['branch'] = 'main' })
+
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-telescope/telescope-dap.nvim'
+Plug 'mfussenegger/nvim-dap-python'
+Plug 'folke/neodev.nvim'
+Plug 'sbdchd/neoformat'
 vim.call('plug#end')
 
 require("mason").setup()

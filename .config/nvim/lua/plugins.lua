@@ -1,57 +1,56 @@
-local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/.vim/plugged')
+local plugins = {
+    { 'nvim-telescope/telescope.nvim' },
+    { 'folke/tokyonight.nvim', branch = 'main' },
+    { 'williamboman/mason-lspconfig.nvim' },
+    { 'neovim/nvim-lspconfig' },
+    { 'nvim-lua/plenary.nvim' },
+    { 'airblade/vim-gitgutter' },
+    { 'fatih/vim-go', build = ':GoUpdateBinaries' },
+    { 'folke/lsp-colors.nvim' },
+    { 'kyazdani43/nvim-web-devicons' },
+    { 'folke/trouble.nvim' },
+    { 'itchyny/lightline.vim' },
+    { 'neovim/nvim-lspconfig' },
+    { 'williamboman/mason.nvim' },
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    { 'ThePrimeagen/harpoon' },
+    { 'mbbill/undotree' },
+    { 'tpope/vim-fugitive' },
+    { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'saadparwaiz1/cmp_luasnip' },
+    { 'hrsh7th/cmp-nvim-lua' },
+    { 'L3MON4D3/LuaSnip' },
+    { 'rafamadriz/friendly-snippets' },
+    { 'VonHeikemen/lsp-zero.nvim', branch = 'v1.x' },
+    { 'nvim-tree/nvim-web-devicons' },
+    { 'nvim-tree/nvim-tree.lua' },
+    { 'christoomey/vim-tmux-navigator' },
+    { 'prettier/vim-prettier' },
+    { 'Exafunction/codeium.vim', branch = 'main' },
+    { 'folke/neodev.nvim' },
+    { 'sbdchd/neoformat' },
+}
+local opts = {}
 
-Plug 'nvim-telescope/telescope.nvim'
-Plug('folke/tokyonight.nvim', { branch = 'main' })
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'airblade/vim-gitgutter'
-Plug('fatih/vim-go', { ['do'] = ':GoUpdateBinaries' })
-Plug 'folke/lsp-colors.nvim'
-Plug 'kyazdani43/nvim-web-devicons'
-Plug 'folke/trouble.nvim'
-Plug 'itchyny/lightline.vim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/mason.nvim'
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
-Plug('akinsho/toggleterm.nvim', { ['tag'] = '*'})
-Plug 'ThePrimeagen/harpoon'
-Plug 'mbbill/undotree'
-Plug 'tpope/vim-fugitive'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'hrsh7th/cmp-nvim-lua' 
-
-Plug 'L3MON4D3/LuaSnip'
-Plug 'rafamadriz/friendly-snippets'
-Plug('VonHeikemen/lsp-zero.nvim', {['branch'] = 'v1.x'})
-
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-tree/nvim-tree.lua'
-
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'prettier/vim-prettier'
-
-Plug('Exafunction/codeium.vim', {['branch'] = 'main' })
-
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
-Plug 'nvim-telescope/telescope-dap.nvim'
-Plug 'mfussenegger/nvim-dap-python'
-Plug 'folke/neodev.nvim'
-Plug 'sbdchd/neoformat'
-vim.call('plug#end')
-
+require("lazy").setup(plugins, opts)
 require("mason").setup()
 require("mason-lspconfig").setup()
-require("toggleterm").setup({
-    autochdir = true
-})
 require("harpoon").setup()
 
 vim.g['lightline'] = {
@@ -73,7 +72,7 @@ vim.g['lightline'] = {
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "python", "java", "javascript", "go" },
+  ensure_installed = { "python", "java", "javascript", "go", "lua", "rust" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -112,4 +111,8 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+
+  indent = {
+    enable = true
+  }
 }

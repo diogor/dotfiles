@@ -31,12 +31,10 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<C-A-P>', tel.git_files, opts)
 vim.keymap.set('n', '<C-p>', tel.find_files, opts)
-vim.keymap.set('n', '<leader>fb', vim.cmd.Ex, opts)
+vim.keymap.set('n', '<leader>fb', vim.cmd.NvimTreeToggle);
 vim.keymap.set('n', '<leader>ff', function()
     tel.grep_string({ search = vim.fn.input('Grep > ') })
 end, opts)
-vim.keymap.set('n', '<leader>k', require('dapui').eval, opts)
-vim.keymap.set('n', '<leader>b', require('dapui').toggle, opts)
 
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>

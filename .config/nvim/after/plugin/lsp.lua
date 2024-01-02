@@ -1,13 +1,8 @@
 local lsp = require('lsp-zero')
 local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
 
 lsp.preset('recommended')
-
-lsp.setup_nvim_cmp({
-  mapping = lsp.defaults.cmp_mappings({
-    ['<Tab>'] = vim.NIL,
-  })
-})
 
 local servers = { 'pyright', 'tsserver', 'jdtls', 'gopls' }
 for _, lsp in pairs(servers) do
@@ -20,3 +15,12 @@ for _, lsp in pairs(servers) do
 end
 lsp.setup()
 
+cmp.setup({
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<Tab>'] = vim.NIL,
+    })
+})

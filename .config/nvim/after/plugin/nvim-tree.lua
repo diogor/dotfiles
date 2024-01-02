@@ -10,6 +10,3 @@ require("nvim-tree").setup({
       ignore = false,
     },
 })
-
-
-vim.keymap.set('n', '<leader>fb', vim.cmd.NvimTreeToggle);

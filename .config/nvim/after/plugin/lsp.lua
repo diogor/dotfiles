@@ -13,10 +13,12 @@ for _, lsp in pairs(servers) do
         }
     }
 end
+
 lsp.setup()
 
-cmp.setup({
-    mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = vim.NIL,
-    })
-})
+lsp.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({
+    buffer = bufnr,
+    exclude = {'<Tab>'},
+  })
+end)

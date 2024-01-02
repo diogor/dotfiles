@@ -16,10 +16,6 @@ end
 lsp.setup()
 
 cmp.setup({
-    window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    },
     mapping = cmp.mapping.preset.insert({
         ['<Tab>'] = vim.NIL,
     })

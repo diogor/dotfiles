@@ -64,7 +64,7 @@ bindsym $mod+Ctrl+l exec i3lock -c 000000
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-default_border pixel 1
+default_border pixel 0
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec wezterm

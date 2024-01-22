@@ -15,7 +15,6 @@ local plugins = {
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
-    'tpope/vim-fugitive',
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
@@ -32,7 +31,8 @@ local plugins = {
     { 'Exafunction/codeium.vim', branch = 'main' },
     'folke/neodev.nvim',
     'sbdchd/neoformat',
-    'numToStr/prettierrc.nvim'
+    'numToStr/prettierrc.nvim',
+    'kdheepak/lazygit.nvim'
 }
 local opts = {}
 

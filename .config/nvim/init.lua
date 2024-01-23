@@ -24,6 +24,7 @@ vim.opt.backup=false
 vim.opt.swapfile=false
 vim.opt.showmode=false
 vim.opt.errorbells=false
+vim.api.nvim_set_option("clipboard","unnamed")
 
 vim.diagnostic.config({
   virtual_text = true

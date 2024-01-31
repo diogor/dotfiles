@@ -37,7 +37,7 @@ vim.keymap.set('n', '<leader>fb', vim.cmd.NvimTreeToggle);
 vim.keymap.set('n', '<leader>ff', function()
     tel.grep_string({ search = vim.fn.input('Grep > ') })
 end, opts)
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git);
+vim.keymap.set('n', '<leader>gs', vim.cmd.LazyGit);
 vim.keymap.set('n', '<leader>a', mark.add_file)
 vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
 vim.keymap.set('n', '<C-,>', function() ui.nav_file(1) end)
@@ -45,6 +45,16 @@ vim.keymap.set('n', '<C-.>', function() ui.nav_file(2) end)
 vim.keymap.set('n', '<C-;>', function() ui.nav_file(3) end)
 vim.keymap.set('n', '<C-/>', function() ui.nav_file(4) end)
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+vim.keymap.set('n', '<F5>', require 'dap'.continue)
+vim.keymap.set('n', '<F10>', require 'dap'.step_over)
+vim.keymap.set('n', '<F11>', require 'dap'.step_into)
+vim.keymap.set('n', '<F12>', require 'dap'.step_out)
+vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
+vim.keymap.set('n', '<leader>B', function()
+  require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))
+end)
+
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

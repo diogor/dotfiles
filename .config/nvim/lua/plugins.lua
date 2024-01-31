@@ -32,7 +32,9 @@ local plugins = {
     'folke/neodev.nvim',
     'sbdchd/neoformat',
     'numToStr/prettierrc.nvim',
-    'kdheepak/lazygit.nvim'
+    'kdheepak/lazygit.nvim',
+    'mfussenegger/nvim-dap',
+    'jay-babu/mason-nvim-dap.nvim',
 }
 local opts = {}
 
@@ -51,6 +53,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(plugins, opts)
 require("mason").setup()
+require("mason-nvim-dap").setup()
 require("mason-lspconfig").setup()
 require("harpoon").setup()
 

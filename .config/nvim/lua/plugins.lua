@@ -34,7 +34,9 @@ local plugins = {
     'numToStr/prettierrc.nvim',
     'kdheepak/lazygit.nvim',
     'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui',
     'jay-babu/mason-nvim-dap.nvim',
+    'mxsdev/nvim-dap-vscode-js',
 }
 local opts = {}
 

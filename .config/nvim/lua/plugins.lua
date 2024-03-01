@@ -38,6 +38,7 @@ local plugins = {
     'rcarriga/nvim-dap-ui',
     'jay-babu/mason-nvim-dap.nvim',
     'mxsdev/nvim-dap-vscode-js',
+    'f-person/git-blame.nvim',
 }
 local opts = {}
 

@@ -40,3 +40,9 @@ for type, icon in pairs(signs) do
 end
 
 vim.cmd('colorscheme tokyonight-night')
+
+vim.filetype.add({
+    extension = {
+        templ = "templ",
+    },
+})

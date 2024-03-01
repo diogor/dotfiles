@@ -7,6 +7,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "codeium.vim": { "branch": "main", "commit": "04e5f9dfb11d3bbcc28b4685378c1e6d2963fd1e" },
   "friendly-snippets": { "branch": "main", "commit": "b8fae73a479ae0a1c54f5c98fa687ae8a0addc53" },
+  "git-blame.nvim": { "branch": "master", "commit": "196602b570b1d754b7b8f9a9f75fa7bd88f12ef8" },
   "harpoon": { "branch": "master", "commit": "ccae1b9bec717ae284906b0bf83d720e59d12b91" },
   "lazy.nvim": { "branch": "main", "commit": "aedcd79811d491b60d0a6577a9c1701063c2a609" },
   "lazygit.nvim": { "branch": "main", "commit": "1e08e3f5ac1152339690140e61a4a32b3bdc7de5" },

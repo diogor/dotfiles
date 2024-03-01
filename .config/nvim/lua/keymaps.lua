@@ -55,6 +55,8 @@ vim.keymap.set('n', '<leader>B', function()
   require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))
 end)
 
+vim.keymap.set('n', '<leader>gb', vim.cmd.GitBlameToggle)
+
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

@@ -13,7 +13,6 @@ local plugins = {
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-    'nvim-treesitter/nvim-treesitter-context',
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
     'hrsh7th/nvim-cmp',

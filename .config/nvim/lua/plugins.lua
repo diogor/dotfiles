@@ -37,7 +37,9 @@ local plugins = {
     'rcarriga/nvim-dap-ui',
     'jay-babu/mason-nvim-dap.nvim',
     'mxsdev/nvim-dap-vscode-js',
+    'nvim-neotest/nvim-nio',
     'f-person/git-blame.nvim',
+    { 'LunarVim/breadcrumbs.nvim', dependencies = { 'SmiteshP/nvim-navic' } },
 }
 local opts = {}
 
@@ -59,6 +61,12 @@ require("mason").setup()
 require("mason-nvim-dap").setup()
 require("mason-lspconfig").setup()
 require("harpoon").setup()
+require("nvim-navic").setup {
+    lsp = {
+        auto_attach = true,
+    },
+}
+require("breadcrumbs").setup()
 
 vim.g['lightline'] = {
   colorscheme = 'rosepine',

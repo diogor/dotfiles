@@ -1,5 +1,12 @@
 local plugins = {
-    'nvim-telescope/telescope.nvim',
+    { 'nvim-telescope/telescope.nvim',
+            dependencies = {
+            {
+                "isak102/telescope-git-file-history.nvim",
+                dependencies = { "tpope/vim-fugitive" }
+            }
+        }
+    },
     { 'folke/tokyonight.nvim', branch = 'main' },
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
@@ -67,6 +74,11 @@ require("nvim-navic").setup {
     },
 }
 require("breadcrumbs").setup()
+
+require("telescope").setup({
+    -- Your telescope config here
+})
+require("telescope").load_extension("git_file_history")
 
 vim.g['lightline'] = {
   colorscheme = 'rosepine',

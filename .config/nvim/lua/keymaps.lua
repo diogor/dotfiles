@@ -36,6 +36,7 @@ vim.keymap.set('n', '<C-p>', tel.find_files, opts)
 vim.keymap.set('n', '<C-w>', tel.buffers, opts)
 vim.keymap.set('n', '<C-s>', tel.lsp_document_symbols, opts)
 vim.keymap.set('n', '<leader>fb', vim.cmd.NvimTreeToggle);
+
 vim.keymap.set('n', '<leader>ff', function()
     tel.grep_string({ search = vim.fn.input('Grep > ') })
 end, opts)
@@ -61,7 +62,7 @@ vim.keymap.set('n', '<leader>gb', vim.cmd.GitBlameToggle)
 
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fh <cmd>Telescope git_file_history<cr>
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi

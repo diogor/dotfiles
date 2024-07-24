@@ -1,6 +1,5 @@
 local tel = require('telescope.builtin')
-local mark = require('harpoon.mark')
-local ui = require('harpoon.ui')
+local harpoon = require('harpoon')
 
 -- Leader
 vim.g.mapleader=" "
@@ -41,12 +40,12 @@ vim.keymap.set('n', '<leader>ff', function()
     tel.grep_string({ search = vim.fn.input('Grep > ') })
 end, opts)
 vim.keymap.set('n', '<leader>gs', vim.cmd.LazyGit);
-vim.keymap.set('n', '<leader>a', mark.add_file)
-vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
-vim.keymap.set('n', '<C-,>', function() ui.nav_file(1) end)
-vim.keymap.set('n', '<C-.>', function() ui.nav_file(2) end)
-vim.keymap.set('n', '<C-;>', function() ui.nav_file(3) end)
-vim.keymap.set('n', '<C-/>', function() ui.nav_file(4) end)
+vim.keymap.set('n', '<leader>a', function() harpoon:list():append() end)
+vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set('n', '<C-,>', function() harpoon:list():select(1) end)
+vim.keymap.set('n', '<C-.>', function() harpoon:list():select(2) end)
+vim.keymap.set('n', '<C-;>', function() harpoon:list():select(3) end)
+vim.keymap.set('n', '<C-/>', function() harpoon:list():select(4) end)
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 vim.keymap.set('n', '<F5>', require 'dap'.continue)

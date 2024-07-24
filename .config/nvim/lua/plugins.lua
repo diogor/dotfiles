@@ -70,7 +70,8 @@ require("lazy").setup(plugins, opts)
 require("mason").setup()
 require("mason-nvim-dap").setup()
 require("mason-lspconfig").setup()
-require("harpoon").setup()
+local harpoon = require("harpoon")
+harpoon:setup()
 require("nvim-navic").setup {
     lsp = {
         auto_attach = true,

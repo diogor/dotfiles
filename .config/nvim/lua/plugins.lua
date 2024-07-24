@@ -20,7 +20,10 @@ local plugins = {
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-    'ThePrimeagen/harpoon',
+    { 'ThePrimeagen/harpoon',
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
     'mbbill/undotree',
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',

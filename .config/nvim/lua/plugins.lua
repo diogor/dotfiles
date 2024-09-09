@@ -50,6 +50,7 @@ local plugins = {
     'nvim-neotest/nvim-nio',
     'f-person/git-blame.nvim',
     { 'LunarVim/breadcrumbs.nvim', dependencies = { 'SmiteshP/nvim-navic' } },
+    'nvim-pack/nvim-spectre',
 }
 local opts = {}
 

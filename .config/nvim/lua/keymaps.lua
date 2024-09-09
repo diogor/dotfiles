@@ -59,6 +59,10 @@ end)
 
 vim.keymap.set('n', '<leader>gb', vim.cmd.GitBlameToggle)
 
+vim.keymap.set('n', '<leader>fp', '<cmd>lua require("spectre").toggle()<CR>', {
+    desc = "Toggle Spectre"
+})
+
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope git_file_history<cr>

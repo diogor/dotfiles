@@ -38,7 +38,6 @@ local plugins = {
     'nvim-tree/nvim-tree.lua',
     'christoomey/vim-tmux-navigator',
     'prettier/vim-prettier',
-    { 'Exafunction/codeium.vim', branch = 'main' },
     'folke/neodev.nvim',
     'sbdchd/neoformat',
     'numToStr/prettierrc.nvim',

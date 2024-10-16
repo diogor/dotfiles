@@ -17,7 +17,6 @@ local plugins = {
     'kyazdani43/nvim-web-devicons',
     'folke/trouble.nvim',
     'itchyny/lightline.vim',
-    'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
     { 'ThePrimeagen/harpoon',
@@ -50,6 +49,7 @@ local plugins = {
     'f-person/git-blame.nvim',
     { 'LunarVim/breadcrumbs.nvim', dependencies = { 'SmiteshP/nvim-navic' } },
     'nvim-pack/nvim-spectre',
+    { 'Exafunction/codeium.vim', event = 'BufEnter' },
 }
 local opts = {}
 

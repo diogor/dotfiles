@@ -68,8 +68,10 @@
     "clock": {
         "interval": 10,
         // "format-alt": " {:%e %b %Y}", // Icon: calendar-alt
-        "format": " {:%a %e %b %H:%M} ",
-        "tooltip-format": "{:%e %B %Y}"
+        "timezone": "America/Sao_Paulo",
+        "locale": "pt_BR.UTF8",
+        "format": " {:L%a %e %b %H:%M} ",
+        "tooltip-format": "{:L%e %B %Y}"
     },
 
     "cpu": {

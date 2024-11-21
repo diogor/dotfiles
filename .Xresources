@@ -44,3 +44,13 @@
 ! White colours
 *.color7:        #ACB0D0
 *.color15:       #ABB2BF
+
+! dwm
+dwm.normbordercolor: #1A1B26
+dwm.normbgcolor:    #1A1B26
+dwm.normfgcolor:    #ABB2BF
+dwm.selbordercolor: #ABB2BF
+dwm.selbgcolor:  #56B6C2
+dwm.selfgcolor: #1A1B26
+!dwm.selbgcolor: #1A1B26
+!dwm.selfgcolor: #56B6C2

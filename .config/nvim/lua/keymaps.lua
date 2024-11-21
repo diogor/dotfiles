@@ -48,15 +48,6 @@ vim.keymap.set('n', '<C-;>', function() harpoon:list():select(3) end)
 vim.keymap.set('n', '<C-/>', function() harpoon:list():select(4) end)
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
-vim.keymap.set('n', '<F5>', require 'dap'.continue)
-vim.keymap.set('n', '<F10>', require 'dap'.step_over)
-vim.keymap.set('n', '<F11>', require 'dap'.step_into)
-vim.keymap.set('n', '<F12>', require 'dap'.step_out)
-vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
-vim.keymap.set('n', '<leader>B', function()
-  require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))
-end)
-
 vim.keymap.set('n', '<leader>gb', vim.cmd.GitBlameToggle)
 
 vim.keymap.set('n', '<leader>fp', '<cmd>lua require("spectre").toggle()<CR>', {

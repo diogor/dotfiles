@@ -30,6 +30,7 @@ markup=pango
 LABEL=
 
 [battery2]
+color=#545e84
 command=battery2/battery2
 markup=pango
 interval=5

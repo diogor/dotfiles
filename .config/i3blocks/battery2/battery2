@@ -99,7 +99,7 @@ else:
             return config.get("color_70", "#FFFF33")
         if percent < 80:
             return config.get("color_80", "#FFFF66")
-        return config.get("color_full", "#FFFFFF")
+        return None
 
     if color(percentleft):
         form = '<span color="{}">{}%</span>'

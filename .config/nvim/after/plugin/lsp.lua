@@ -6,7 +6,7 @@ local lspconfig = require('lspconfig')
 
 lsp.preset('recommended')
 
-local servers = { 'pyright', 'tsserver', 'jdtls', 'gopls' }
+local servers = { 'pyright', 'ts_ls', 'jdtls', 'gopls' }
 for _, lsp in pairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,

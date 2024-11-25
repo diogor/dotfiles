@@ -20,6 +20,7 @@
   "mini.nvim": { "branch": "main", "commit": "6714e738555b1cfbef646a23af29aa113f91f4fe" },
   "neodev.nvim": { "branch": "main", "commit": "46aa467dca16cf3dfe27098042402066d2ae242d" },
   "neoformat": { "branch": "master", "commit": "d9d3311097eacdba9bd7a425b267d304b509e7ea" },
+  "neoscroll.nvim": { "branch": "master", "commit": "e58ecc61e38f348dcc8f2af037fe7031f8a6ef7c" },
   "nvim-cmp": { "branch": "main", "commit": "40a03dc225383c4f6256596c2cdf27e03b8119b5" },
   "nvim-lspconfig": { "branch": "master", "commit": "f012c1b176f0e3c71f40eb309bdec0316689462e" },
   "nvim-navic": { "branch": "master", "commit": "8649f694d3e76ee10c19255dece6411c29206a54" },

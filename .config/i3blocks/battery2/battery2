@@ -103,9 +103,10 @@ else:
 
     if color(percentleft):
         form = '<span color="{}">{}%</span>'
+        fulltext += form.format(color(percentleft), percentleft)
     else:
         form = "<span>{}%</span>"
-    fulltext += form.format(color(percentleft), percentleft)
+        fulltext += form.format(percentleft)
     fulltext += timeleft
 
 print(fulltext)

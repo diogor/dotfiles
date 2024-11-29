@@ -4,6 +4,6 @@
 
 ## Dependências (arch)
 ```bash
-pacman -S --needed base-devel
-pacman -Sy xorg-server xorg-apps stow i3lock i3blocks lxsession picom dunst volumeicon nitrogen thunar rofi blueman nerd-fonts ttf-font-awesome acpi pacman-contrib network-manager-applet ttf-hack
+pacman -Sy --needed base-devel
+pacman -Sy xorg-server xorg-apps wezterm alacritty stow i3lock i3blocks lxsession picom dunst volumeicon nitrogen thunar rofi blueman nerd-fonts ttf-font-awesome acpi pacman-contrib network-manager-applet ttf-hack xss-lock
 ```

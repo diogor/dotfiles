@@ -117,3 +117,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 source /usr/share/nvm/init-nvm.sh
+
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin

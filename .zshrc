@@ -121,3 +121,5 @@ source /usr/share/nvm/init-nvm.sh
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+export PATH=$PATH:$HOME/bin

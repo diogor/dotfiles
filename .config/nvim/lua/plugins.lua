@@ -79,6 +79,7 @@ harpoon:setup()
 require("nvim-navic").setup {
     lsp = {
         auto_attach = true,
+        preference = { "pylsp", "pyright" }
     },
 }
 require("breadcrumbs").setup()

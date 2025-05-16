@@ -16,7 +16,6 @@ local on_attach = function(client, bufnr)
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', 'grr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', '<leader>K', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
@@ -27,6 +26,10 @@ local on_attach = function(client, bufnr)
 end
 vim.keymap.set("n", "gd", function()
     require("telescope.builtin").lsp_definitions()
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "gr", function()
+    require("telescope.builtin").lsp_references()
 end, { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)

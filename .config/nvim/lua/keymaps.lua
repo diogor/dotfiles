@@ -15,7 +15,6 @@ local on_attach = function(client, bufnr)
 
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', 'grr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -26,6 +25,9 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
+vim.keymap.set("n", "gd", function()
+    require("telescope.builtin").lsp_definitions()
+end, { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -53,6 +55,7 @@ vim.keymap.set('n', '<leader>gb', vim.cmd.GitBlameToggle)
 vim.keymap.set('n', '<leader>fp', '<cmd>lua require("spectre").toggle()<CR>', {
     desc = "Toggle Spectre"
 })
+
 
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>

@@ -8,7 +8,6 @@ local plugins = {
         }
     },
     { 'folke/tokyonight.nvim', branch = 'main' },
-    'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
     'nvim-lua/plenary.nvim',
     'airblade/vim-gitgutter',
@@ -32,7 +31,6 @@ local plugins = {
     'hrsh7th/cmp-nvim-lua',
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
-    { 'VonHeikemen/lsp-zero.nvim', branch = 'v1.x' },
     'nvim-tree/nvim-web-devicons',
     'nvim-tree/nvim-tree.lua',
     'christoomey/vim-tmux-navigator',
@@ -73,7 +71,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(plugins, opts)
 require("mason").setup()
-require("mason-lspconfig").setup()
 local harpoon = require("harpoon")
 harpoon:setup()
 require("nvim-navic").setup {

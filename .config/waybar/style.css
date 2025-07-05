@@ -180,7 +180,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    border-bottom: 1px solid  #ff4499;
+    border-bottom: 1px solid #90bedf;
     margin-bottom: 1px;
     padding-left:0;
 }

@@ -18,6 +18,7 @@
     ],
  
     "modules-center": [
+        "clock",
     ],
 
     "modules-right": [
@@ -33,7 +34,6 @@
         "pulseaudio",
         "pulseaudio#microphone",
         "tray",
-        "clock",
     ],
 
     // Modules

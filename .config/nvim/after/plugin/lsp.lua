@@ -18,6 +18,6 @@ cmp.setup({
   },
 })
 
-vim.lsp.enable('pylsp')
+vim.lsp.enable('pyright')
 vim.lsp.enable('gopls')
 vim.lsp.enable('intelephense')

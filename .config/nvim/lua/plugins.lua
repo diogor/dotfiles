@@ -13,6 +13,7 @@ local plugins = {
     'airblade/vim-gitgutter',
     { 'fatih/vim-go', build = ':GoUpdateBinaries' },
     'folke/lsp-colors.nvim',
+    'kyazdani43/nvim-web-devicons',
     'folke/trouble.nvim',
     'itchyny/lightline.vim',
     'williamboman/mason.nvim',
@@ -30,17 +31,8 @@ local plugins = {
     'hrsh7th/cmp-nvim-lua',
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
-    {
-      'stevearc/oil.nvim',
-      ---@module 'oil'
-      ---@type oil.SetupOpts
-      opts = {},
-      -- Optional dependencies
-      dependencies = { { "echasnovski/mini.icons", opts = {} } },
-      -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-      -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-      lazy = false,
-    },
+    'nvim-tree/nvim-web-devicons',
+    'nvim-tree/nvim-tree.lua',
     'christoomey/vim-tmux-navigator',
     'prettier/vim-prettier',
     'folke/neodev.nvim',

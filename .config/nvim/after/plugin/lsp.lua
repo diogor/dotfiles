@@ -17,7 +17,3 @@ cmp.setup({
     { name = 'luasnip' },
   },
 })
-
-vim.lsp.enable('pyright')
-vim.lsp.enable('gopls')
-vim.lsp.enable('intelephense')

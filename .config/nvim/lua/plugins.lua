@@ -52,7 +52,15 @@ local plugins = {
         ---@type render.md.UserConfig
         opts = {},
     },
-    'github/copilot.vim'
+    'github/copilot.vim',
+    {
+        "mason-org/mason-lspconfig.nvim",
+        opts = {},
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
+    }
 }
 local opts = {}
 
@@ -71,6 +79,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(plugins, opts)
 require("mason").setup()
+require("mason-lspconfig").setup()
 local harpoon = require("harpoon")
 harpoon:setup()
 require("nvim-navic").setup {

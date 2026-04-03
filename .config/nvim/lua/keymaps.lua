@@ -1,5 +1,5 @@
 local tel = require('telescope.builtin')
-local harpoon = require('harpoon')
+--local harpoon = require('harpoon')
 
 -- Leader
 vim.g.mapleader=" "
@@ -39,26 +39,18 @@ vim.keymap.set('n', '<C-A-P>', tel.git_files, opts)
 vim.keymap.set('n', '<C-p>', tel.find_files, opts)
 vim.keymap.set('n', '<C-w>', tel.buffers, opts)
 vim.keymap.set('n', '<C-s>', tel.lsp_document_symbols, opts)
-vim.keymap.set("n", "<leader>fb", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>fb", "<CMD>Oil<CR>")
 
 vim.keymap.set('n', '<leader>ff', function()
     tel.grep_string({ search = vim.fn.input('Grep > ') })
 end, opts)
 vim.keymap.set('n', '<leader>gs', vim.cmd.LazyGit);
-vim.keymap.set('n', '<leader>a', function() harpoon:list():append() end)
-vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set('n', '<C-,>', function() harpoon:list():select(1) end)
-vim.keymap.set('n', '<C-.>', function() harpoon:list():select(2) end)
-vim.keymap.set('n', '<C-;>', function() harpoon:list():select(3) end)
-vim.keymap.set('n', '<C-/>', function() harpoon:list():select(4) end)
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 vim.keymap.set('n', '<leader>gb', vim.cmd.GitBlameToggle)
 
 vim.keymap.set('n', '<leader>fp', '<cmd>lua require("spectre").toggle()<CR>', {
     desc = "Toggle Spectre"
 })
-
 
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>

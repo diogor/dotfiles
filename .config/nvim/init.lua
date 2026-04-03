@@ -1,30 +1,30 @@
+HOME = os.getenv("HOME")
+vim.o.exrc=true
+vim.o.tabstop=4 
+vim.o.softtabstop=4
+vim.o.shiftwidth=4
+vim.o.expandtab=true
+vim.o.smartindent=true
+vim.o.relativenumber=true
+vim.o.number=true
+vim.o.hidden=true
+vim.o.undodir=HOME .. "/.vim/undodir"
+vim.o.undofile=true
+vim.o.incsearch=true
+vim.o.termguicolors=true
+vim.o.scrolloff=8
+vim.o.signcolumn="yes"
+vim.o.updatetime=100
+vim.o.hlsearch=false
+vim.o.wrap=false
+vim.o.backup=false
+vim.o.swapfile=false
+vim.o.showmode=false
+vim.o.errorbells=false
+vim.api.nvim_set_option("clipboard","unnamed")
+
 require("plugins")
 require("keymaps")
-
-HOME = os.getenv("HOME")
-vim.opt.exrc=true
-vim.opt.tabstop=4 
-vim.opt.softtabstop=4
-vim.opt.shiftwidth=4
-vim.opt.expandtab=true
-vim.opt.smartindent=true
-vim.opt.relativenumber=true
-vim.opt.number=true
-vim.opt.hidden=true
-vim.opt.undodir=HOME .. "/.vim/undodir"
-vim.opt.undofile=true
-vim.opt.incsearch=true
-vim.opt.termguicolors=true
-vim.opt.scrolloff=8
-vim.opt.signcolumn="yes"
-vim.opt.updatetime=100
-vim.opt.hlsearch=false
-vim.opt.wrap=false
-vim.opt.backup=false
-vim.opt.swapfile=false
-vim.opt.showmode=false
-vim.opt.errorbells=false
-vim.api.nvim_set_option("clipboard","unnamed")
 
 vim.diagnostic.config({
   virtual_text = true
@@ -39,10 +39,5 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
 end
 
-vim.cmd('colorscheme tokyonight-night')
+vim.cmd.colorscheme("tokyonight-night")
 
-vim.filetype.add({
-    extension = {
-        templ = "templ",
-    },
-})

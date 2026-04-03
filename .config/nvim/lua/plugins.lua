@@ -1,98 +1,45 @@
-local plugins = {
-    { 'nvim-telescope/telescope.nvim',
-            dependencies = {
-            {
-                "isak102/telescope-git-file-history.nvim",
-                dependencies = { "tpope/vim-fugitive" }
-            }
-        }
-    },
-    { 'folke/tokyonight.nvim', branch = 'main' },
-    'neovim/nvim-lspconfig',
-    'nvim-lua/plenary.nvim',
-    'airblade/vim-gitgutter',
-    { 'fatih/vim-go', build = ':GoUpdateBinaries' },
-    'folke/lsp-colors.nvim',
-    'kyazdani43/nvim-web-devicons',
-    'folke/trouble.nvim',
-    'itchyny/lightline.vim',
-    'williamboman/mason.nvim',
-    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-    { 'ThePrimeagen/harpoon',
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" }
-    },
-    'mbbill/undotree',
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'saadparwaiz1/cmp_luasnip',
-    'hrsh7th/cmp-nvim-lua',
-    'L3MON4D3/LuaSnip',
-    'rafamadriz/friendly-snippets',
-    'nvim-tree/nvim-web-devicons',
-    'nvim-tree/nvim-tree.lua',
-    'christoomey/vim-tmux-navigator',
-    'prettier/vim-prettier',
-    'folke/neodev.nvim',
-    'sbdchd/neoformat',
-    'numToStr/prettierrc.nvim',
-    'kdheepak/lazygit.nvim',
-    'nvim-neotest/nvim-nio',
-    'f-person/git-blame.nvim',
-    { 'LunarVim/breadcrumbs.nvim', dependencies = { 'SmiteshP/nvim-navic' } },
-    'nvim-pack/nvim-spectre',
+vim.pack.add {
+    'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/nvim-treesitter/nvim-treesitter',
     {
-        'MeanderingProgrammer/render-markdown.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-        ---@module 'render-markdown'
-        ---@type render.md.UserConfig
-        opts = {},
+        src = "https://github.com/folke/tokyonight.nvim",
+        opts = { transparent = true }
     },
-    'github/copilot.vim',
-    {
-        "mason-org/mason-lspconfig.nvim",
-        opts = {},
-        dependencies = {
-            { "mason-org/mason.nvim", opts = {} },
-            "neovim/nvim-lspconfig",
-        },
-    }
+    "https://github.com/isak102/telescope-git-file-history.nvim",
+    "https://github.com/tpope/vim-fugitive",
+    'https://github.com/nvim-telescope/telescope.nvim',
+    "https://github.com/nvim-mini/mini.icons",
+    'https://github.com/stevearc/oil.nvim',
+    "https://github.com/benomahony/oil-git.nvim",
+    'https://github.com/itchyny/lightline.vim',
+    'https://github.com/nvim-lua/plenary.nvim',
+    'https://github.com/airblade/vim-gitgutter',
+    'https://github.com/folke/lsp-colors.nvim',
+    'https://github.com/folke/trouble.nvim',
+    'https://github.com/nvim-tree/nvim-web-devicons',
+    'https://github.com/christoomey/vim-tmux-navigator',
+    'https://github.com/sbdchd/neoformat',
+    'https://github.com/kdheepak/lazygit.nvim',
+    'https://github.com/f-person/git-blame.nvim',
+    'https://github.com/SmiteshP/nvim-navic',
+    'https://github.com/LunarVim/breadcrumbs.nvim',
+    'https://github.com/nvim-pack/nvim-spectre',
+    'https://github.com/echasnovski/mini.nvim',
+    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+    "https://github.com/mason-org/mason.nvim",
+    'https://github.com/mason-org/mason-lspconfig.nvim',
+    'https://github.com/hrsh7th/nvim-cmp',
+    'https://github.com/hrsh7th/cmp-nvim-lsp',
+    'https://github.com/hrsh7th/cmp-buffer',
+    'https://github.com/hrsh7th/cmp-path',
+    'https://github.com/saadparwaiz1/cmp_luasnip',
+    'https://github.com/hrsh7th/cmp-nvim-lua',
+	'https://github.com/github/copilot.vim',
 }
-local opts = {}
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+vim.cmd.packadd('nvim.undotree')
 
-require("lazy").setup(plugins, opts)
-require("mason").setup()
-require("mason-lspconfig").setup()
-local harpoon = require("harpoon")
-harpoon:setup()
-require("nvim-navic").setup {
-    lsp = {
-        auto_attach = true,
-        preference = { "pylsp", "pyright" }
-    },
-}
-require("breadcrumbs").setup()
-
-require("telescope").setup({
-    -- Your telescope config here
-})
+require("telescope").setup()
 require("telescope").load_extension("git_file_history")
 
 vim.g['lightline'] = {
@@ -112,3 +59,57 @@ vim.g['lightline'] = {
   }
 }
 
+require("nvim-treesitter").setup({})
+require'nvim-treesitter'.install { 'go', 'lua', 'python', 'javascript', 'typescript', 'php' }
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		local filetype = vim.bo.filetype
+		if filetype and filetype ~= "" then
+			pcall(vim.treesitter.start)
+		end
+	end,
+})
+
+require("oil").setup()
+require("oil-git").setup()
+
+require("nvim-web-devicons").setup()
+
+require("nvim-navic").setup {
+    lsp = {
+        auto_attach = true,
+        preference = { "pylsp", "pyright" }
+    },
+}
+require("breadcrumbs").setup()
+
+require('gitblame').setup {
+     --Note how the `gitblame_` prefix is omitted in `setup`
+    enabled = false,
+}
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+
+local cmp = require('cmp')
+
+local select_opts = {behavior = cmp.SelectBehavior.Select}
+
+cmp.setup({
+  mapping = {
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
+    ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  },
+})

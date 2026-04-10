@@ -26,18 +26,20 @@ vim.api.nvim_set_option("clipboard","unnamed")
 require("plugins")
 require("keymaps")
 
-vim.diagnostic.config({
-  virtual_text = true
-})
+local sev = vim.diagnostic.severity
 
--- this is for diagnositcs signs on the line number column
--- use this to beautify the plain E W signs to more fun ones
--- !important nerdfonts needs to be setup for this to work in your terminal
-local signs = { Error = "", Warn = "", Hint = "", Info = "" } 
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
-end
+vim.diagnostic.config({
+  severity_sort = true,
+  virtual_text = true,
+  signs = {
+    text = {
+      [sev.ERROR] = '',
+      [sev.WARN]  = '',
+      [sev.INFO]  = '',
+      [sev.HINT]  = '',
+    },
+  },
+})
 
 vim.cmd.colorscheme("tokyonight-night")
 

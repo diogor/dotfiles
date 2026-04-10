@@ -1,10 +1,7 @@
 vim.pack.add {
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/nvim-treesitter/nvim-treesitter',
-    {
-        src = "https://github.com/folke/tokyonight.nvim",
-        opts = { transparent = true }
-    },
+    "https://github.com/folke/tokyonight.nvim",
     "https://github.com/isak102/telescope-git-file-history.nvim",
     "https://github.com/tpope/vim-fugitive",
     'https://github.com/nvim-telescope/telescope.nvim',
@@ -36,6 +33,10 @@ vim.pack.add {
     'https://github.com/hrsh7th/cmp-nvim-lua',
 	'https://github.com/github/copilot.vim',
 }
+
+require("tokyonight").setup({
+    transparent = true,
+})
 
 vim.cmd.packadd('nvim.undotree')
 

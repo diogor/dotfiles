@@ -24,6 +24,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
+
 vim.keymap.set("n", "gd", function()
     require("telescope.builtin").lsp_definitions()
 end, { noremap = true, silent = true })

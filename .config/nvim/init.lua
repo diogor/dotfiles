@@ -1,6 +1,6 @@
 HOME = os.getenv("HOME")
 vim.o.exrc=true
-vim.o.tabstop=4 
+vim.o.tabstop=4
 vim.o.softtabstop=4
 vim.o.shiftwidth=4
 vim.o.expandtab=true
@@ -41,5 +41,40 @@ vim.diagnostic.config({
   },
 })
 
-vim.cmd.colorscheme("tokyonight-night")
+--vim.cmd.colorscheme("github-monochrome-dark")
+--vim.cmd.colorscheme("monoglow")
+--vim.cmd.colorscheme("vague")
+--vim.cmd.colorscheme("zenbones")
+vim.cmd.colorscheme("tokyonight")
+--vim.cmd.colorscheme("poimandres")
+--vim.cmd.colorscheme("embark")
+--vim.cmd.colorscheme("darkvoid")
+--vim.cmd.colorscheme("bluewery")
+--vim.cmd.colorscheme("lush")
+--vim.cmd.colorscheme("nord")
 
+local function set_transparent() -- set UI component to transparent
+	local groups = {
+		"Normal",
+--		"NormalNC",
+--		"EndOfBuffer",
+--		"NormalFloat",
+--		"FloatBorder",
+		"SignColumn",
+        "StatusLine",
+--		"StatusLineNC",
+--		"TabLine",
+--		"TabLineFill",
+--		"TabLineSel",
+--		"ColorColumn",
+--      "HeaderLine",
+	}
+	for _, g in ipairs(groups) do
+		vim.api.nvim_set_hl(0, g, { bg = "none" })
+	end
+end
+
+set_transparent()
+
+-- LSP
+vim.lsp.enable('gleam')

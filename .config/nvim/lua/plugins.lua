@@ -1,14 +1,12 @@
 vim.pack.add {
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/nvim-treesitter/nvim-treesitter',
-    "https://github.com/folke/tokyonight.nvim",
     "https://github.com/isak102/telescope-git-file-history.nvim",
     "https://github.com/tpope/vim-fugitive",
     'https://github.com/nvim-telescope/telescope.nvim',
     "https://github.com/nvim-mini/mini.icons",
     'https://github.com/stevearc/oil.nvim',
     "https://github.com/benomahony/oil-git.nvim",
-    'https://github.com/itchyny/lightline.vim',
     'https://github.com/nvim-lua/plenary.nvim',
     'https://github.com/airblade/vim-gitgutter',
     'https://github.com/folke/lsp-colors.nvim',
@@ -21,7 +19,7 @@ vim.pack.add {
     'https://github.com/SmiteshP/nvim-navic',
     'https://github.com/LunarVim/breadcrumbs.nvim',
     'https://github.com/nvim-pack/nvim-spectre',
-    'https://github.com/echasnovski/mini.nvim',
+    'https://github.com/nvim-mini/mini.nvim',
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
     "https://github.com/mason-org/mason.nvim",
     'https://github.com/mason-org/mason-lspconfig.nvim',
@@ -32,36 +30,66 @@ vim.pack.add {
     'https://github.com/saadparwaiz1/cmp_luasnip',
     'https://github.com/hrsh7th/cmp-nvim-lua',
 	'https://github.com/github/copilot.vim',
+    "https://github.com/lewis6991/gitsigns.nvim",
+    "https://github.com/sschleemilch/slimline.nvim",
+
+    -- themes
+    "https://github.com/wnkz/monoglow.nvim",
+--    "https://github.com/shaunsingh/nord.nvim",
+    "https://github.com/folke/tokyonight.nvim",
+    "https://github.com/idr4n/github-monochrome.nvim",
+    "https://github.com/olivercederborg/poimandres.nvim",
+    'https://github.com/vague-theme/vague.nvim',
+    'https://github.com/zenbones-theme/zenbones.nvim',
+    'https://github.com/rktjmp/lush.nvim',
+    'https://github.com/embark-theme/vim',
+    "https://github.com/aliqyan-21/darkvoid.nvim",
+    "https://github.com/relastle/bluewery.vim",
+    "https://github.com/kunzaatko/nord.nvim",
 }
 
-require("tokyonight").setup({
-    transparent = true,
+require("monoglow").setup({
+  on_colors = function(colors)
+    colors.glow = "#6fd3c4"
+  end
 })
+
+require("tokyonight").setup({
+  transparent = true,
+})
+
+require("slimline").setup({
+  style = 'fg',
+  bold = true,
+  configs = {
+    path = {
+      truncate = false,
+      hl = {
+        primary = 'Label',
+      },
+    },
+    git = {
+      hl = {
+        primary = 'Function',
+      },
+    },
+    filetype_lsp = {
+      hl = {
+        primary = 'String',
+      },
+    },
+  },
+})
+
+require('gitsigns').setup({ signcolumn = false })
 
 vim.cmd.packadd('nvim.undotree')
 
 require("telescope").setup()
 require("telescope").load_extension("git_file_history")
 
-vim.g['lightline'] = {
-  colorscheme = 'rosepine',
-  active = {
-    left = {{'mode', 'paste'}, {'readonly', 'absolutepath', 'modified'}}
-  },
-  tabline = {
-    left = {{'buffers'}},
-    right = {{'close'}}
-  },
-  component_expand = {
-    buffers = 'lightline#bufferline#buffers'
-  },
-  component_type = {
-    buffers = 'tabsel'
-  }
-}
-
 require("nvim-treesitter").setup({})
-require'nvim-treesitter'.install { 'go', 'lua', 'python', 'javascript', 'typescript', 'php' }
+require'nvim-treesitter'.install { 'go', 'lua', 'python', 'javascript', 'typescript', 'php', 'elixir' }
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",

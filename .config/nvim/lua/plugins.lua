@@ -29,7 +29,7 @@ vim.pack.add {
     'https://github.com/hrsh7th/cmp-path',
     'https://github.com/saadparwaiz1/cmp_luasnip',
     'https://github.com/hrsh7th/cmp-nvim-lua',
-	'https://github.com/github/copilot.vim',
+	--'https://github.com/github/copilot.vim',
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/sschleemilch/slimline.nvim",
 
@@ -46,6 +46,9 @@ vim.pack.add {
     "https://github.com/aliqyan-21/darkvoid.nvim",
     "https://github.com/relastle/bluewery.vim",
     "https://github.com/kunzaatko/nord.nvim",
+    --"https://github.com/Exafunction/windsurf.vim",
+    -- AI
+    'https://github.com/milanglacier/minuet-ai.nvim',
 }
 
 require("monoglow").setup({
@@ -142,3 +145,46 @@ cmp.setup({
     { name = 'luasnip' },
   },
 })
+
+require('minuet').setup {
+    virtualtext = {
+        auto_trigger_ft = { "*" },
+        keymap = {
+            -- accept whole completion
+            --accept = '<A-A>',
+            accept = '<S-Tab>',
+            -- accept one line
+            accept_line = '<Tab>',
+            -- accept n lines (prompts for number)
+            -- e.g. "A-z 2 CR" will accept 2 lines
+            accept_n_lines = '<A-z>',
+            -- Cycle to prev completion item, or manually invoke completion
+            prev = '<A-[>',
+            -- Cycle to next completion item, or manually invoke completion
+            next = '<A-]>',
+            dismiss = '<A-e>',
+        },
+    },
+    provider = 'openai_fim_compatible',
+    n_completions = 1, -- recommend for local model for resource saving
+    -- I recommend beginning with a small context window size and incrementally
+    -- expanding it, depending on your local computing power. A context window
+    -- of 512, serves as an good starting point to estimate your computing
+    -- power. Once you have a reliable estimate of your local computing power,
+    -- you should adjust the context window to a larger value.
+    context_window = 512,
+    provider_options = {
+        openai_fim_compatible = {
+            -- For Windows users, TERM may not be present in environment variables.
+            -- Consider using APPDATA instead.
+            api_key = 'TERM',
+            name = 'Ollama',
+            end_point = 'http://localhost:11434/v1/completions',
+            model = 'qwen3-coder:480b-cloud',
+            optional = {
+                max_tokens = 56,
+                top_p = 0.9,
+            },
+        },
+    },
+}

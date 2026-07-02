@@ -151,10 +151,10 @@ require('minuet').setup {
         auto_trigger_ft = { "*" },
         keymap = {
             -- accept whole completion
-            --accept = '<A-A>',
-            accept = '<S-Tab>',
+            accept = '<A-A>',
+            --accept = '<S-Tab>',
             -- accept one line
-            accept_line = '<Tab>',
+            accept_line = '<S-Tab>',
             -- accept n lines (prompts for number)
             -- e.g. "A-z 2 CR" will accept 2 lines
             accept_n_lines = '<A-z>',

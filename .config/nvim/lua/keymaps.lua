@@ -56,6 +56,7 @@ vim.keymap.set('n', '<leader>fp', '<cmd>lua require("spectre").toggle()<CR>', {
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope git_file_history<cr>
+nnoremap <leader>fl <cmd>Telescope buffers<cr>
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi

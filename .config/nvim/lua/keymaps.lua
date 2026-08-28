@@ -52,6 +52,7 @@ vim.keymap.set('n', '<leader>gb', vim.cmd.GitBlameToggle)
 vim.keymap.set('n', '<leader>fp', '<cmd>lua require("spectre").toggle()<CR>', {
     desc = "Toggle Spectre"
 })
+vim.keymap.set("x", "p", [["_dP]])
 
 vim.cmd([[
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>

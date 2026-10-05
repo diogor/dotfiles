@@ -105,7 +105,14 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-require("oil").setup()
+require("oil").setup({
+    columns = {
+        -- "size",
+        "permissions",
+        "mtime",
+        "icon"
+    }
+})
 require("oil-git").setup()
 
 require("nvim-web-devicons").setup()

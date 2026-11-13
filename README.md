@@ -10,3 +10,4 @@ pacman -Sy xorg-server xorg-apps wezterm alacritty stow i3lock i3blocks lxsessio
 # AUR
 tofi
 ```
+---
